@@ -17,6 +17,7 @@ const Content = () => {
 
   const toCheckevent = (e) => {
     console.log(e.target);
+    console.log(e.target.innerText);
   };
 
   return (
