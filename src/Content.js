@@ -16,7 +16,7 @@ const Content = () => {
   };
 
   const toCheckevent = (e) => {
-    console.log(e);
+    console.log(e.target);
   };
 
   return (
@@ -32,6 +32,7 @@ const Content = () => {
       function executes only when we click */}
 
       <button onClick={(e) => toCheckevent(e)}>subscribe</button>
+      {/*  here we use event.target to check which element was clicked  */}
     </header>
   );
 };
