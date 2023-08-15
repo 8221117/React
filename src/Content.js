@@ -15,15 +15,23 @@ const Content = () => {
     console.log(`have a happy day ${name}`);
   };
 
+  const toCheckevent = (e) => {
+    console.log(e);
+  };
+
   return (
     <header>
       <h1>i am from content component</h1>
       <p> Let's {HandleNamechange()} Love</p>
-
       <button onClick={HandleClick}>Please click here</button>
       <button onClick={() => HandleClickParam("kutty")}>
         Please click here too
       </button>
+
+      {/* here we are using anonymous function to give the parameter so that
+      function executes only when we click */}
+
+      <button onClick={(e) => toCheckevent(e)}>subscribe</button>
     </header>
   );
 };
