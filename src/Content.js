@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 const Content = () => {
   function HandleNamechange() {
@@ -20,6 +21,16 @@ const Content = () => {
     console.log(e.target.innerText);
   };
 
+  const [count, setCount] = useState(1);
+
+  function incrementFunction() {
+    setCount(count + 1);
+  }
+
+  function decrementFunction() {
+    setCount(count - 1);
+  }
+
   return (
     <header>
       <h1>i am from content component</h1>
@@ -34,6 +45,14 @@ const Content = () => {
 
       <button onClick={(e) => toCheckevent(e)}>subscribe</button>
       {/*  here we use event.target to check which element was clicked  */}
+
+      <button onDoubleClick={() => HandleClickParam("nandhu")}>
+        Double Click this Button
+      </button>
+      <br />
+      <button onClick={decrementFunction}>-</button>
+      <span>{count}</span>
+      <button onClick={incrementFunction}>+</button>
     </header>
   );
 };
