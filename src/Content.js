@@ -23,7 +23,7 @@ const Content = () => {
 
   const [count, setCount] = useState(1);
 
-  const [name, setName] = useState(Name());
+  const [name, setName] = useState(() => Name());
 
   function incrementFunction() {
     setCount((prevCount) => {
@@ -43,7 +43,7 @@ const Content = () => {
 
   function Name() {
     return console.log(
-      "this is wrong way . This functions is called everytime when the page reloads and for every other click of button"
+      "this is right way . This functions is called only once when the page reloads"
     );
   }
 
