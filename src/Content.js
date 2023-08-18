@@ -23,7 +23,10 @@ const Content = () => {
 
   const [count, setCount] = useState(1);
 
-  const [name, setName] = useState(() => Name());
+  const [name, setName] = useState({
+    name: "nandhu",
+    text: "like",
+  }); /* don't use object inside useState , if you still want to use then , give one value ina use state like text:"like" */
 
   function incrementFunction() {
     setCount((prevCount) => {
