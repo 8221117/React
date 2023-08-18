@@ -24,11 +24,15 @@ const Content = () => {
   const [count, setCount] = useState(1);
 
   function incrementFunction() {
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(
-      count + 1
-    ); /* This will not increment the counter by three times  because everytime the counter is set to default value one  */
+    setCount((prevCount) => {
+      return prevCount + 1;
+    });
+    setCount((count) => {
+      return count + 1;
+    });
+    setCount((count) => {
+      return count + 1;
+    }); /* corrected version of function to increment by three Times */
   }
 
   function decrementFunction() {
