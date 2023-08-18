@@ -25,6 +25,10 @@ const Content = () => {
 
   function incrementFunction() {
     setCount(count + 1);
+    setCount(count + 1);
+    setCount(
+      count + 1
+    ); /* This will not increment the counter by three times  because everytime the counter is set to default value one  */
   }
 
   function decrementFunction() {
