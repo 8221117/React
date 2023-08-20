@@ -44,7 +44,6 @@ function App() {
         <Header />
         <Content
           items={items}
-          setItems={setItems}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
         />
