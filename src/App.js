@@ -13,7 +13,7 @@ function App() {
         {/* <p>{"kutty"}</p>
         <p>{[1, 2, 3, 4]}</p>
         <p>{1 === 1}</p> */}
-        <Header />
+        <Header title="TO DO LIST BY NANDHU" />
         <Content />
         <Footer />
       </div>
