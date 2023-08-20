@@ -14,7 +14,11 @@ const Content = () => {
   console.log(itemss); */
 
   const handleCheck = (id) => {
-    console.log(`id: ${id}`);
+    /*  console.log(`id: ${id}`); */
+    const listItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setItems(listItems);
   };
 
   return (
