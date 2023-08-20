@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <p>{name}</p>
+        {/* <p>{name}</p> */}
         {/* <p>normal text</p> */}
-        <p>{"kutty"}</p>
+        {/* <p>{"kutty"}</p>
         <p>{[1, 2, 3, 4]}</p>
-        <p>{1 === 1}</p>
+        <p>{1 === 1}</p> */}
         <Header />
         <Content />
         <Footer />
