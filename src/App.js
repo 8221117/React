@@ -23,6 +23,7 @@ function App() {
   console.log(itemss); */
 
   const [newItem, setNewItem] = useState("");
+  const [search, setSearch] = useState("");
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
@@ -71,9 +72,11 @@ function App() {
           setNewItem={setNewItem}
           handleSubmit={handleSubmit}
         />
-        <ItemSearch />
+        <ItemSearch search={search} setSearch={setSearch} />
         <Content
-          items={items}
+          items={items.filter((item) =>
+            item.item.toLowerCase().includes(search.toLowerCase())
+          )}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
         />
