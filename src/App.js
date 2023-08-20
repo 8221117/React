@@ -18,6 +18,8 @@ function App() {
   const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
   console.log(itemss); */
 
+  const [newItem, setNewItem] = useState("");
+
   const handleCheck = (id) => {
     /*  console.log(`id: ${id}`); */
     const listItems = items.map((item) =>
@@ -33,6 +35,10 @@ function App() {
     localStorage.setItem("todo_list", JSON.stringify(listItems));
   };
 
+  const handleSubmit = (e) => {
+    console.log("submitted");
+  };
+
   return (
     <div className="App">
       <div className="App-header">
@@ -43,7 +49,11 @@ function App() {
         <p>{1 === 1}</p> */}
         {/* <Header title="TO DO LIST BY NANDHU"/> */}
         <Header />
-        <ItemAdd />
+        <ItemAdd
+          newItem={newItem}
+          setNewItem={setNewItem}
+          handleSubmit={handleSubmit}
+        />
         <Content
           items={items}
           handleCheck={handleCheck}
