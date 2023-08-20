@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 
 const ItemAdd = ({ newItem, setNewItem, handleSubmit }) => {
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSubmit}>
       <label htmlFor="addItem">Add Item</label>
       <input
         type="text"
