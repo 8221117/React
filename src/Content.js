@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import Itemslist from "./List";
 
 const Content = ({ items, handleCheck, handleDelete }) => {
   /* const [items, setItems] = useState([
@@ -31,29 +31,11 @@ const Content = ({ items, handleCheck, handleDelete }) => {
   return (
     <main>
       {items.length ? (
-        <ul>
-          {items.map((item) => (
-            <li className="item" key={item.id}>
-              <input
-                type="checkbox"
-                onChange={() => handleCheck(item.id)}
-                checked={item.checked}
-              ></input>
-              <label
-                style={item.checked ? { textDecoration: "line-through" } : null}
-                onDoubleClick={() => handleCheck(item.id)}
-              >
-                {item.item}
-              </label>
-              <FaTrashAlt
-                role="button"
-                tabIndex="0"
-                onClick={() => handleDelete(item.id)}
-              ></FaTrashAlt>
-              <FaEdit role="button" tabIndex="0" />
-            </li>
-          ))}
-        </ul>
+        <Itemslist
+          items={items}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
       ) : (
         <p style={{ marginTop: "8rem" }}>Your LIST is EMPTY</p>
       )}
