@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 import ItemAdd from "./AddItem";
+import ItemSearch from "./SearchItem";
 
 function App() {
   const name = "nandhu";
@@ -70,6 +71,7 @@ function App() {
           setNewItem={setNewItem}
           handleSubmit={handleSubmit}
         />
+        <ItemSearch />
         <Content
           items={items}
           handleCheck={handleCheck}
