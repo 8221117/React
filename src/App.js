@@ -5,6 +5,32 @@ import Footer from "./Footer";
 
 function App() {
   const name = "nandhu";
+
+  const [items, setItems] = useState([
+    { id: 1, checked: true, item: "Practice coding" },
+    { id: 2, checked: false, item: "Play Cricket" },
+    { id: 3, checked: false, item: "Sing a song" },
+  ]);
+
+  /*   const numbers = [-2, -1, 0, 1, 2];
+  const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
+  console.log(itemss); */
+
+  const handleCheck = (id) => {
+    /*  console.log(`id: ${id}`); */
+    const listItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setItems(listItems);
+    localStorage.setItem("todo_list", JSON.stringify(listItems));
+  };
+
+  const handleDelete = (id) => {
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
+    localStorage.setItem("todo_list", JSON.stringify(listItems));
+  };
+
   return (
     <div className="App">
       <div className="App-header">

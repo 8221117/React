@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
 const Content = () => {
-  const [items, setItems] = useState([
+  /* const [items, setItems] = useState([
     { id: 1, checked: true, item: "Practice coding" },
     { id: 2, checked: false, item: "Play Cricket" },
     { id: 3, checked: false, item: "Sing a song" },
@@ -13,9 +13,9 @@ const Content = () => {
   const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
   console.log(itemss); */
 
-  const handleCheck = (id) => {
+  /* const handleCheck = (id) => {
     /*  console.log(`id: ${id}`); */
-    const listItems = items.map((item) =>
+  /* const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
@@ -26,7 +26,7 @@ const Content = () => {
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
     localStorage.setItem("todo_list", JSON.stringify(listItems));
-  };
+  }; */
 
   return (
     <main>
