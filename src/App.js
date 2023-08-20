@@ -2,6 +2,7 @@ import "./App.css";
 import Content from "./Content";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useState } from "react";
 
 function App() {
   const name = "nandhu";
@@ -41,7 +42,12 @@ function App() {
         <p>{1 === 1}</p> */}
         {/* <Header title="TO DO LIST BY NANDHU"/> */}
         <Header />
-        <Content />
+        <Content
+          items={items}
+          setItems={setItems}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
         <Footer />
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
+
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
-const Content = () => {
+const Content = ({ items, setItems, handleCheck, handleDelete }) => {
   /* const [items, setItems] = useState([
     { id: 1, checked: true, item: "Practice coding" },
     { id: 2, checked: false, item: "Play Cricket" },
