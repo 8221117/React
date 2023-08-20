@@ -10,4 +10,6 @@ const Header = ({ title }) => {
   );
 };
 
+Header.defaultProps = { title: "TO DO LIST" };
+
 export default Header;
