@@ -38,7 +38,9 @@ const Content = () => {
               onChange={() => handleCheck(item.id)}
               checked={item.checked}
             ></input>
-            <label>{item.item}</label>
+            <label onDoubleClick={() => handleCheck(item.id)}>
+              {item.item}
+            </label>
             <FaTrashAlt
               role="button"
               tabIndex="0"
