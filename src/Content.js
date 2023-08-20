@@ -2,19 +2,29 @@ import React from "react";
 import { useState } from "react";
 
 const Content = () => {
-  function HandleNamechange2() {
-    const names = ["earn", "grow", "give"];
-    const matchNames = Math.floor(Math.random() * 3);
-    setRandomName(names[matchNames]);
-  }
+  const [items, setItems] = useState([
+    { id: 1, checked: true, item: "Practice coding" },
+    { id: 2, checked: true, item: "Play Cricket" },
+    { id: 3, checked: true, item: "Sing a song" },
+  ]);
 
-  const [randomName, setRandomName] = useState("Earn");
+  /*   const numbers = [-2, -1, 0, 1, 2];
+  const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
+  console.log(itemss); */
 
   return (
-    <header>
-      <p> Let's {randomName} Money</p>
-      <button onClick={HandleNamechange2}>Click Here</button>
-    </header>
+    <main>
+      <ul>
+        {items.map((item) => (
+          <li>
+            <input type="checkbox" checked={item.checked}></input>
+            <label>{item.item}</label>
+            <button>Delete</button>
+            <button>Edit</button>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 };
 export default Content;
