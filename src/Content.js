@@ -55,7 +55,7 @@ const Content = () => {
           ))}
         </ul>
       ) : (
-        <p>Your LIST is EMPTY</p>
+        <p style={{ marginTop: "8rem" }}>Your LIST is EMPTY</p>
       )}
     </main>
   );
