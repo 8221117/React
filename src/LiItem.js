@@ -20,8 +20,9 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
         role="button"
         tabIndex="0"
         onClick={() => handleDelete(item.id)}
+        aria-label={`Delete ${item.id}`}
       ></FaTrashAlt>
-      <FaEdit role="button" tabIndex="0" />
+      <FaEdit role="button" tabIndex="0" aria-label={`Edit ${item.id}`} />
     </li>
   );
 };
