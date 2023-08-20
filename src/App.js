@@ -3,6 +3,7 @@ import Content from "./Content";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
+import ItemAdd from "./AddItem";
 
 function App() {
   const name = "nandhu";
@@ -42,6 +43,7 @@ function App() {
         <p>{1 === 1}</p> */}
         {/* <Header title="TO DO LIST BY NANDHU"/> */}
         <Header />
+        <ItemAdd />
         <Content
           items={items}
           handleCheck={handleCheck}
