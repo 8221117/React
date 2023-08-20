@@ -21,6 +21,11 @@ const Content = () => {
     setItems(listItems);
   };
 
+  const handleDelete = (id) => {
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
+  };
+
   return (
     <main>
       <ul>
@@ -32,7 +37,11 @@ const Content = () => {
               checked={item.checked}
             ></input>
             <label>{item.item}</label>
-            <FaTrashAlt role="button" tabIndex="0"></FaTrashAlt>
+            <FaTrashAlt
+              role="button"
+              tabIndex="0"
+              onClick={() => handleDelete(item.id)}
+            ></FaTrashAlt>
             <FaEdit role="button" tabIndex="0" />
           </li>
         ))}
