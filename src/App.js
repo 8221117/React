@@ -23,6 +23,7 @@ function App() {
   console.log("before effect"); */
 
   const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -37,6 +38,8 @@ function App() {
       } catch (err) {
         /*  console.log(err.stack); */
         setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     setTimeout(() => {
