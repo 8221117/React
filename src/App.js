@@ -8,6 +8,7 @@ import ItemSearch from "./SearchItem";
 
 function App() {
   const name = "nandhu";
+  const API_URL = "http://localhost:3500/items";
 
   const [items, setItems] = useState(
     /*  JSON.parse(localStorage.getItem("todo_list")) || [] */ []
@@ -22,8 +23,18 @@ function App() {
   console.log("before effect"); */
 
   useEffect(() => {
-    /* console.log("load time"); */
-    JSON.parse(localStorage.getItem("todo_list"));
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(API_URL);
+        console.log(response);
+        const listItems = await response.json();
+        console.log(listItems);
+        setItems(listItems);
+      } catch (err) {
+        console.log(err.stack);
+      }
+    };
+    (async () => await fetchItems())();
   }, []);
 
   /*   console.log("after effect"); */
