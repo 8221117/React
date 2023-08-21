@@ -105,6 +105,7 @@ function App() {
         />
         <ItemSearch search={search} setSearch={setSearch} />
         <main>
+          {isLoading && <p> Loading Items....</p>}
           {fetchError && <p>{`Error: ${fetchError}`}</p>}
           <Content
             items={items.filter((item) =>
