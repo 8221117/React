@@ -10,21 +10,24 @@ function App() {
   const name = "nandhu";
 
   const [items, setItems] = useState(
-    /* [
+    /*  JSON.parse(localStorage.getItem("todo_list")) || [] */ []
+  );
+  /* [
     { id: 1, checked: true, item: "Practice coding" },
     { id: 2, checked: false, item: "Play Cricket" },
     { id: 3, checked: false, item: "Sing a song" },
   ] */
-    JSON.parse(localStorage.getItem("todo_list"))
-  );
 
-  console.log("before effect");
+  /* 
+  console.log("before effect"); */
 
   useEffect(() => {
-    console.log("load time");
-  }, [items]);
+    /* console.log("load time"); */
+    JSON.parse(localStorage.getItem("todo_list"));
+  }, []);
 
-  console.log("after effect");
+  /*   console.log("after effect"); */
+
   /*   const numbers = [-2, -1, 0, 1, 2];
   const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
   console.log(itemss); */
