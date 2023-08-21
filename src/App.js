@@ -2,7 +2,7 @@ import "./App.css";
 import Content from "./Content";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemAdd from "./AddItem";
 import ItemSearch from "./SearchItem";
 
@@ -17,6 +17,10 @@ function App() {
   ] */
     JSON.parse(localStorage.getItem("todo_list"))
   );
+
+  useEffect(() => {
+    console.log("load time");
+  });
 
   /*   const numbers = [-2, -1, 0, 1, 2];
   const itemss = numbers.filter((n) => n >= 0).map((n) => ({ number: n }));
