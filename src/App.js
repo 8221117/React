@@ -8,7 +8,7 @@ import ItemSearch from "./SearchItem";
 
 function App() {
   const name = "nandhu";
-  const API_URL = "http://localhost:3500/items";
+  const API_URL = "http://localhost:3500/itemss";
 
   const [items, setItems] = useState(
     /*  JSON.parse(localStorage.getItem("todo_list")) || [] */ []
@@ -29,11 +29,14 @@ function App() {
       try {
         const response = await fetch(API_URL);
         console.log(response);
+        if (!response.ok) throw Error("Data not received");
         const listItems = await response.json();
         console.log(listItems);
         setItems(listItems);
+        setFetchError(null);
       } catch (err) {
-        console.log(err.stack);
+        /*  console.log(err.stack); */
+        setFetchError(err.message);
       }
     };
     (async () => await fetchItems())();
@@ -53,7 +56,7 @@ function App() {
     const addNewItem = { id, checked: false, item };
     const listItems = [...items, addNewItem];
     setItems(listItems);
-    localStorage.setItem("todo_list", JSON.stringify(listItems));
+    /* localStorage.setItem("todo_list", JSON.stringify(listItems)); */
   };
 
   const handleCheck = (id) => {
@@ -62,13 +65,13 @@ function App() {
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
-    localStorage.setItem("todo_list", JSON.stringify(listItems));
+    /* localStorage.setItem("todo_list", JSON.stringify(listItems)); */
   };
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
-    localStorage.setItem("todo_list", JSON.stringify(listItems));
+    /* localStorage.setItem("todo_list", JSON.stringify(listItems)); */
   };
 
   const handleSubmit = (e) => {
