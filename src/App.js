@@ -8,7 +8,7 @@ import ItemSearch from "./SearchItem";
 
 function App() {
   const name = "nandhu";
-  const API_URL = "http://localhost:3500/itemss";
+  const API_URL = "http://localhost:3500/items";
 
   const [items, setItems] = useState(
     /*  JSON.parse(localStorage.getItem("todo_list")) || [] */ []
@@ -39,7 +39,9 @@ function App() {
         setFetchError(err.message);
       }
     };
-    (async () => await fetchItems())();
+    setTimeout(() => {
+      (async () => await fetchItems())();
+    }, 2000);
   }, []);
 
   /*   console.log("after effect"); */
