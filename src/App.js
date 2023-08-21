@@ -22,6 +22,8 @@ function App() {
   /* 
   console.log("before effect"); */
 
+  const [fetchError, setFetchError] = useState(null);
+
   useEffect(() => {
     const fetchItems = async () => {
       try {
