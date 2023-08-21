@@ -99,13 +99,16 @@ function App() {
           handleSubmit={handleSubmit}
         />
         <ItemSearch search={search} setSearch={setSearch} />
-        <Content
-          items={items.filter((item) =>
-            item.item.toLowerCase().includes(search.toLowerCase())
-          )}
-          handleCheck={handleCheck}
-          handleDelete={handleDelete}
-        />
+        <main>
+          {fetchError && <p>{`Error: ${fetchError}`}</p>}
+          <Content
+            items={items.filter((item) =>
+              item.item.toLowerCase().includes(search.toLowerCase())
+            )}
+            handleCheck={handleCheck}
+            handleDelete={handleDelete}
+          />
+        </main>
         <Footer length={items.length} />
       </div>
     </div>
