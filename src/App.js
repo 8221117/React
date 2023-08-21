@@ -107,13 +107,15 @@ function App() {
         <main>
           {isLoading && <p> Loading Items....</p>}
           {fetchError && <p>{`Error: ${fetchError}`}</p>}
-          <Content
-            items={items.filter((item) =>
-              item.item.toLowerCase().includes(search.toLowerCase())
-            )}
-            handleCheck={handleCheck}
-            handleDelete={handleDelete}
-          />
+          {!isLoading && !fetchError && (
+            <Content
+              items={items.filter((item) =>
+                item.item.toLowerCase().includes(search.toLowerCase())
+              )}
+              handleCheck={handleCheck}
+              handleDelete={handleDelete}
+            />
+          )}
         </main>
         <Footer length={items.length} />
       </div>
