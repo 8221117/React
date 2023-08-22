@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import ItemAdd from "./AddItem";
 import ItemSearch from "./SearchItem";
+import apiRequest from "./ApiRequest";
 
 function App() {
   const name = "nandhu";
@@ -56,12 +57,21 @@ function App() {
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
 
-  const addItem = (item) => {
+  const addItem = async (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const addNewItem = { id, checked: false, item };
     const listItems = [...items, addNewItem];
     setItems(listItems);
     /* localStorage.setItem("todo_list", JSON.stringify(listItems)); */
+
+    const postOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(addNewItem),
+    };
+
+    const result = await apiRequest(API_URL, postOptions);
+    if (result) setFetchError(result);
   };
 
   const handleCheck = (id) => {
