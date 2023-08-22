@@ -34,6 +34,7 @@ function App() {
         if (!response.ok) throw Error("Data not received");
         const listItems = await response.json();
         console.log(listItems);
+
         setItems(listItems);
         setFetchError(null);
       } catch (err) {
@@ -74,13 +75,25 @@ function App() {
     if (result) setFetchError(result);
   };
 
-  const handleCheck = (id) => {
+  const handleCheck = async (id) => {
     /*  console.log(`id: ${id}`); */
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
     /* localStorage.setItem("todo_list", JSON.stringify(listItems)); */
+
+    const myItem = listItems.filter((item) => item.id === id);
+
+    const updateOptions = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ checked: myItem[0].checked }),
+    };
+
+    const reqUrl = `${API_URL}/${id}`;
+    const result = await apiRequest(reqUrl, updateOptions);
+    if (result) setFetchError(result);
   };
 
   const handleDelete = (id) => {
